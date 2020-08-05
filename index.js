@@ -112,3 +112,29 @@ LinkedList.prototype.deleteEnd = function (data) {
   previous.next = null;
   return this.head;
 };
+
+//delete node ramdom that mean anywhere we want
+
+LinkedList.prototype.deleteRandom = function (index) {
+  // when list is empty i.e head = null
+  if (!this.head) {
+    this.head = new Node(index);
+    return;
+  }
+
+  // delete node at first of the node
+  if (index === 0) {
+    this.head = this.head.next;
+    return;
+  }
+
+  //we can use getAt() to find previous node
+
+  const previous = this.getAt(index - 1);
+
+  if (previous || previous.next) {
+    return;
+  }
+  previous.next = previous.next.next;
+  return this.head;
+};
