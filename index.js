@@ -78,3 +78,37 @@ LinkedList.prototype.insertAt = function (data, index) {
   previous.next = newNode;
   return this.head;
 };
+
+// deleting the first node
+
+LinkedList.prototype.deleteStart = function (data) {
+  if (!this.head) {
+    return;
+  }
+  this.head = this.head.next;
+  return this.head;
+};
+
+//deleting last node
+LinkedList.prototype.deleteEnd = function (data) {
+  if (!this.head) {
+    return null;
+  }
+
+  //contains only one node
+
+  if (!this.head.next) {
+    this.head = null;
+    return;
+  }
+
+  let previous = this.head;
+  let tail = this.head.next;
+  while (tail.next !== null) {
+    previous = tail;
+    tail = tail.next;
+  }
+
+  previous.next = null;
+  return this.head;
+};
