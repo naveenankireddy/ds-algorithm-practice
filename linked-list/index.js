@@ -4,7 +4,7 @@
 class Node {
   constructor(data, next = null) {
     this.data = data;
-    thiis.next = next;
+    this.next = next;
   }
 }
 
@@ -69,6 +69,7 @@ LinkedList.prototype.insertAt = function (data, index) {
     this.head = new Node(data, this.head);
     return;
   }
+
 
   //we can use getAt() to find the previous node
 
